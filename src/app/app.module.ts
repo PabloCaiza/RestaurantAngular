@@ -25,6 +25,7 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 //services
 import {DishService} from './services/dish.service';
 import {PromotionService} from './services/promotion.service';
+import {LeaderService} from './services/leader.service'
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import {PromotionService} from './services/promotion.service';
     MatCardModule,
     
   ],
-  providers: [DishService,PromotionService],
+  providers: [DishService,PromotionService,LeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

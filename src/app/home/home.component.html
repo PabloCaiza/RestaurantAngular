@@ -19,6 +19,16 @@
         </div>
       </div>
 
+      <div class="card m-2" style="width: 50rem; " *ngIf="leader">
+        <img src="{{leader.image}}" class="card-img-top" alt="{{leader.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{leader.name}}</h5>
+          <p class="card-text">{{leader.designation}}</p>
+          <p class="card-text">{{leader.description}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
 
 </div>
 
