@@ -1,1 +1,24 @@
-<p>home works!</p>
+
+<div class="container d-flex flex-column flex-md-row justify-content-center">
+
+    <div class="card m-2" style="width: 50rem; " *ngIf="dish" >
+        <img src="{{dish.image}}" class="card-img-top" alt="{{dish.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{dish.name}}</h5>
+          <p class="card-text">{{dish.description}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+      <div class="card m-2" style="width: 50rem; " *ngIf="promotion">
+        <img src="{{promotion.image}}" class="card-img-top" alt="{{promotion.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{promotion.name}}</h5>
+          <p class="card-text">{{promotion.description}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+
+</div>
+
