@@ -1,6 +1,6 @@
 <div fxLayout="row" class="container" fxLayout.sm="column" fxLayout.xs="column"
     fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
-
+    
     <div fxFlex="40">
         <div *ngIf="pickedDish">
             <mat-card>
@@ -18,6 +18,7 @@
 
                 </mat-card-content>
                 <mat-card-actions>
+                    <button mat-button color="primary" (click)="goBack()">Back</button>
                     <button mat-button color="primary">LIKE</button>
                     <button mat-button color="warn">SHARE</button>
                 </mat-card-actions>
