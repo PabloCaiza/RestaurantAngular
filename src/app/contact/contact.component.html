@@ -37,23 +37,31 @@
   <div fxFlex fxFlexOffset="20px" class="from-size">
     <h3>Send us your feedback</h3>
     <p>{{ feedbackForm.value | json}} {{feedbackForm.status | json}}</p>
-    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
-      <p>1
+    <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+      <p>
         <mat-form-field class="half-width">
           <input type="text" matInput placeholder="First Name" required formControlName="firstname">
+          <mat-error *ngIf="feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched">
+            First Name is required
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
           <input type="text" matInput placeholder="Last Name" required formControlName="lastname">
-
+          <mat-error *ngIf="feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched">
+            Last Name is required
+          </mat-error>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field class="half-width">
           <input type="tel" matInput placeholder="Tel Number" required formControlName="telnum">
+          <mat-error *ngIf="feedbackForm.get('telnum').hasError('required') && feedbackForm.get('telnum').touched">
+            Tel Numb is required
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
           <input type="email" matInput placeholder="Email" required formControlName="email">
-
+          <mat-error *ngIf="feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched" >Email is required</mat-error>
         </mat-form-field>
       </p>
       <table class="form-size">
@@ -79,7 +87,9 @@
         </mat-form-field>
 
       </p>
-      <button type="submit" mat-button class="background-primary text-floral-white">Submit </button>
+      <button type="submit" mat-button class="background-primary text-floral-white"
+      [disabled]="feedbackForm.invalid"
+      >Submit </button>
 
     </form>
 
