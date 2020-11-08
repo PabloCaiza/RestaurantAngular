@@ -7,17 +7,17 @@ import {Promotion} from '../shared/promotion'
 export class PromotionService {
 
   constructor() { }
-  getPromotions(): Promotion[] {
-    return PROMOTIONS;
+  getPromotions(): Promise<Promotion[]> {
+    return Promise.resolve(PROMOTIONS);
   }
-  getPromotion(id:string): Promotion {
-    return PROMOTIONS.filter((promotion:Promotion)=>{
+  getPromotion(id:string): Promise <Promotion> {
+    return Promise.resolve( PROMOTIONS.filter((promotion:Promotion)=>{
          return promotion.id===id;
 
-    })[0];
+    })[0]);
   }
-  getFeaturedPromotion():Promotion{
-    return PROMOTIONS.filter((promotion:Promotion)=>(promotion.featured))[0];
+  getFeaturedPromotion():Promise<Promotion>{
+    return Promise.resolve(PROMOTIONS.filter((promotion:Promotion)=>(promotion.featured))[0]);
   }
 
 

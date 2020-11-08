@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import {FormBuilder,FormControl,FormGroup,Validators} from '@angular/forms';
 import {FeedBack,ContactType} from '../shared/feedback';
 
 @Component({
@@ -20,16 +20,29 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
   }
   createForm():void{
-    this.feedbackForm=this.fb.group({
-      firstname:['',Validators.required],
-      lastname:['',Validators.required],
-      telnum:[0,Validators.required],
-      email:['',Validators.required],
-      agree:false,
-      contacttype:'None',
-      message:''
+    
+    // this.feedbackForm=this.fb.group({
+    //   firstname:['',Validators.required],
+    //   lastname:['',Validators.required],
+    //   telnum:[0,Validators.required],
+    //   email:['',Validators.required],
+    //   agree:false,
+    //   contacttype:'None',
+    //   message:''
 
-    });
+    // });
+    this.feedbackForm=new FormGroup({
+      firstname: new FormControl('',Validators.required),
+      lastname:new FormControl('',Validators.required),
+      telnum:new FormControl(0,Validators.required),
+      email:new FormControl('',Validators.required),
+      agree:new FormControl(false),
+      contacttype:new FormControl('None'),
+      message:new FormControl('')
+    }
+
+
+    );
 
   }
   onSubmit():void{
