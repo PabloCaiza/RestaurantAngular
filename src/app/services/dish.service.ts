@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Dish} from  '../shared/dish';
-import {DISHES} from  '../shared/dishes';
+import { Dish } from '../shared/dish';
+import { DISHES } from '../shared/dishes';
 
 @Injectable({
   providedIn: 'root'
@@ -8,18 +8,30 @@ import {DISHES} from  '../shared/dishes';
 export class DishService {
 
   constructor() { }
-  
-  getDishes(): Promise<Dish[]> {
-    return Promise.resolve(DISHES);
-  }
-  getDish(id:string): Promise<Dish> {
-    return Promise.resolve(DISHES.filter((dish:Dish)=>{
-         return dish.id===id;
 
-    })[0]);
+  getDishes(): Promise<Dish[]> {
+    
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(DISHES);
+      }, 2000);
+
+    });
   }
-  getFeaturedDish():Promise<Dish>{
-    return Promise.resolve(DISHES.filter((dish:Dish)=>(dish.featured))[0]);
+  getDish(id: string): Promise<Dish> {
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(DISHES.filter((dish: Dish) => {
+        return dish.id === id;
+
+      })[0]), 2000);
+    });
+  }
+  getFeaturedDish(): Promise<Dish> {
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(DISHES.filter((dish: Dish) => (dish.featured))[0]), 2000);
+    });
   }
 
 
