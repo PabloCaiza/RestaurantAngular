@@ -27,6 +27,9 @@
 
 
         </div>
+        <div [hidden]="pickedDish">
+            <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+          </div>
 
 
     </div>
@@ -47,6 +50,9 @@
         </mat-list>>
 
     </div>
+    <div [hidden]="pickedDish">
+        <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+      </div>
 
 
 </div>

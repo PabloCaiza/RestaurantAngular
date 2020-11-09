@@ -9,6 +9,9 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
+      <div [hidden]="dish">
+        <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+      </div>
 
       <div class="card m-2" style="width: 50rem; " *ngIf="promotion">
         <img src="{{promotion.image}}" class="card-img-top" alt="{{promotion.name}}">
@@ -17,6 +20,9 @@
           <p class="card-text">{{promotion.description}}</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
+      </div>
+      <div [hidden]="promotion">
+        <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
       </div>
 
       <div class="card m-2" style="width: 50rem; " *ngIf="leader">
@@ -27,6 +33,9 @@
           <p class="card-text">{{leader.description}}</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
+      </div>
+      <div [hidden]="leader">
+        <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
       </div>
 
 
