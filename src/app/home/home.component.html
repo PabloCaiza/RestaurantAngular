@@ -9,8 +9,14 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
+<<<<<<< HEAD
       <div [hidden]="dish">
         <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+=======
+      <div class="card m-2" style="width: 50rem; " [hidden]="dish" >
+        <mat-spinner></mat-spinner>
+        <h4>Loading ... please wait</h4>
+>>>>>>> 44a611387d18ce758d8c761c5e8d1c6e6cda8c73
       </div>
 
       <div class="card m-2" style="width: 50rem; " *ngIf="promotion">
@@ -25,6 +31,11 @@
         <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
       </div>
 
+      <div class="card m-2" style="width: 50rem; " [hidden]="promotion" >
+        <mat-spinner></mat-spinner>
+        <h4>Loading ... please wait</h4>
+      </div>
+
       <div class="card m-2" style="width: 50rem; " *ngIf="leader">
         <img src="{{leader.image}}" class="card-img-top" alt="{{leader.name}}">
         <div class="card-body">
@@ -34,8 +45,14 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
+<<<<<<< HEAD
       <div [hidden]="leader">
         <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+=======
+      <div class="card m-2" style="width: 50rem; " [hidden]="leader" >
+        <mat-spinner></mat-spinner>
+        <h4>Loading ... please wait</h4>
+>>>>>>> 44a611387d18ce758d8c761c5e8d1c6e6cda8c73
       </div>
 
 

@@ -19,7 +19,11 @@ import {FormsModule} from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select'
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+<<<<<<< HEAD
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+=======
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+>>>>>>> 44a611387d18ce758d8c761c5e8d1c6e6cda8c73
 import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
