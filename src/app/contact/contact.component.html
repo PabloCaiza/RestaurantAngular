@@ -41,28 +41,30 @@
       <p>
         <mat-form-field class="half-width">
           <input type="text" matInput placeholder="First Name" required formControlName="firstname">
-          <mat-error *ngIf="feedbackForm.get('firstname').hasError('required') && feedbackForm.get('firstname').touched">
-            First Name is required
+          <mat-error *ngIf="formsError.firstname">
+            {{formsError.firstname}}
           </mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
           <input type="text" matInput placeholder="Last Name" required formControlName="lastname">
-          <mat-error *ngIf="feedbackForm.get('lastname').hasError('required') && feedbackForm.get('lastname').touched">
-            Last Name is required
+          <mat-error *ngIf="formsError.lastname">
+            {{formsError.lastname}}
           </mat-error>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field class="half-width">
-          <input type="tel" matInput placeholder="Tel Number" required formControlName="telnum">
-          <mat-error *ngIf="feedbackForm.get('telnum').hasError('required') && feedbackForm.get('telnum').touched">
-            Tel Numb is required
+          <input type="tel" matInput placeholder="Tel Number" required formControlName="telnum" pattern="[0-9]*">
+          <mat-error *ngIf="formsError.telnum">
+            {{formsError.telnum}}
           </mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
-          <input type="email" matInput placeholder="Email" required formControlName="email">
-          <mat-error *ngIf="feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched" >Email is required</mat-error>
-        </mat-form-field>
+          <input type="email" matInput placeholder="Email" required formControlName="email" email>
+          <mat-error *ngIf="formsError.email">
+            {{formsError.email}}
+          </mat-error>
+          </mat-form-field>
       </p>
       <table class="form-size">
         <td>
