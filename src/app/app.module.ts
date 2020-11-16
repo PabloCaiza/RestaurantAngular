@@ -20,6 +20,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select'
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
+import {HttpClientModule} from '@angular/common/http';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -40,6 +41,8 @@ import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component'
+
+import {baseUrl} from './shared/baseurl';
 
 
 @NgModule({
@@ -74,11 +77,12 @@ import { LoginComponent } from './login/login.component'
     MatSlideToggleModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule
 
   ],
   entryComponents: [LoginComponent],
-  providers: [DishService, PromotionService, LeaderService],
+  providers: [DishService, PromotionService, LeaderService,{provide:'BaseUrl',useValue:baseUrl}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

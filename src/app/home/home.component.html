@@ -2,7 +2,7 @@
 <div class="container d-flex flex-column flex-md-row justify-content-center">
 
     <div class="card m-2" style="width: 50rem; " *ngIf="dish" >
-        <img src="{{dish.image}}" class="card-img-top" alt="{{dish.name}}">
+        <img src="{{baseUrl+dish.image}}" class="card-img-top" alt="{{dish.name}}">
         <div class="card-body">
           <h5 class="card-title">{{dish.name}}</h5>
           <p class="card-text">{{dish.description}}</p>
