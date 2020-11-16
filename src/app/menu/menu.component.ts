@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
   
   dishes:Dish[] ;
   selectedDish:Dish;
+  errorMsg:string;
 
   constructor(private dishService:DishService,@Inject('BaseUrl') private baseUrl) { }
 
@@ -19,7 +20,7 @@ export class MenuComponent implements OnInit {
     this.dishService.getDishes().subscribe(DISHES=>{
       this.dishes=DISHES;
 
-    });
+    },errorMsg=>this.errorMsg=<any>errorMsg);
   }
   onSelect(pickedDish:Dish): void{
     this.selectedDish=pickedDish;

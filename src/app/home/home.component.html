@@ -9,8 +9,12 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-      <div [hidden]="dish " class="card m-2" style="width: 50rem;" >
+      <div [hidden]="dish || dishErrorMsg " class="card m-2" style="width: 50rem;" >
         <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+      </div>
+      <div *ngIf="dishErrorMsg" class="card m-2" style="width: 50rem; ">
+        <h2>Error</h2>
+        <h4>{{dishErrorMsg}}</h4>
       </div>
 
       <div class="card m-2" style="width: 50rem; " *ngIf="promotion">
@@ -40,6 +44,7 @@
       <div [hidden]="leader" class="card m-2" style="width: 50rem; ">
         <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
       </div>
+     
 
 
 </div>

@@ -37,9 +37,13 @@
 
 
         </div>
-        <div [hidden]="pickedDish">
+        <div [hidden]="pickedDish || errorMsg">
             <mat-spinner></mat-spinner>
             <h4>Loading . . . Please Wait</h4>
+        </div>
+        <div *ngIf="errorMsg">
+            <h2>Error</h2>
+            <h4>{{error}}</h4>
         </div>
 
 
