@@ -6,12 +6,26 @@ import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { DishService } from '../services/dish.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 
 @Component({
   selector: 'app-dishdetail',
   templateUrl: './dishdetail.component.html',
-  styleUrls: ['./dishdetail.component.scss']
+  styleUrls: ['./dishdetail.component.scss'],
+  animations: [
+    trigger('visibility', [
+    state('shown', style({
+      transform: 'scale(1.0)',
+      opacity: 1
+    })), state('hidden', style({
+      transform: 'scale(0.5)',
+      opacity: 0
+
+    })),
+    transition('*=>*',animate('0.5s ease-in-out'))
+
+  ])]
 })
 export class DishdetailComponent implements OnInit {
   //@Input()
@@ -22,6 +36,7 @@ export class DishdetailComponent implements OnInit {
   errorMsg: string;
   dishCopy: Dish
   commentForm: FormGroup;
+  visibility:string="shown";
   @ViewChild('cform') commentFormDirective;
 
   formError = {
@@ -52,7 +67,7 @@ export class DishdetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.dishService.getDishesIds().subscribe(dishesIds => this.dishIds = dishesIds);
-    this.route.params.pipe(switchMap((params: Params) => this.dishService.getDish(params['id']))).subscribe((dish: Dish) => { this.pickedDish = dish; this.dishCopy = dish; this.setPrevNext() }, error => this.errorMsg = <any>error);
+    this.route.params.pipe(switchMap((params: Params) =>{ this.visibility="hidden";return this.dishService.getDish(params['id'])})).subscribe((dish: Dish) => { this.visibility="shown";this.pickedDish = dish; this.dishCopy = dish; this.setPrevNext() }, error => this.errorMsg = <any>error);
 
   }
   setPrevNext(): void {
@@ -124,8 +139,8 @@ export class DishdetailComponent implements OnInit {
       Date.now().toString());
 
     this.dishCopy.comments.push(comment);
-    
-    this.dishService.putDish(this.dishCopy).subscribe(dish => {  this.dishCopy=this.pickedDish = dish }, error => { this.dishCopy = this.pickedDish=null ; this.errorMsg=<any>error});
+
+    this.dishService.putDish(this.dishCopy).subscribe(dish => { this.dishCopy = this.pickedDish = dish }, error => { this.dishCopy = this.pickedDish = null; this.errorMsg = <any>error });
   }
 
 }

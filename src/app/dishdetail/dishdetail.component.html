@@ -2,7 +2,7 @@
     fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
     <div fxFlex="40">
-        <div *ngIf="pickedDish">
+        <div *ngIf="pickedDish" [@visibility]="visibility">
             <mat-card>
                 <mat-card-header>
                     <mat-card-title>
@@ -49,7 +49,7 @@
 
     </div>
 
-    <div fxFlex="40" *ngIf="pickedDish">
+    <div fxFlex="40" *ngIf="pickedDish" [@visibility]="visibility">
 
         <mat-list>
             <h3>Comments</h3>
