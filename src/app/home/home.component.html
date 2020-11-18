@@ -1,7 +1,7 @@
 
 <div class="container d-flex flex-column flex-md-row justify-content-center">
 
-    <div class="card m-2" style="width: 50rem; " *ngIf="dish" >
+    <div class="card m-2" style="width: 50rem; " *ngIf="dish" [@expand] >
         <img src="{{baseUrl+dish.image}}" class="card-img-top" alt="{{dish.name}}">
         <div class="card-body">
           <h5 class="card-title">{{dish.name}}</h5>
@@ -9,7 +9,7 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-      <div [hidden]="dish || dishErrorMsg " class="card m-2" style="width: 50rem;" >
+      <div [hidden]="dish || dishErrorMsg " class="card m-2" style="width: 50rem;"  >
         <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
       </div>
       <div *ngIf="dishErrorMsg" class="card m-2" style="width: 50rem; ">
@@ -17,7 +17,7 @@
         <h4>{{dishErrorMsg}}</h4>
       </div>
 
-      <div class="card m-2" style="width: 50rem; " *ngIf="promotion">
+      <div class="card m-2" style="width: 50rem; " *ngIf="promotion" [@expand] >
         <img src="{{promotion.image}}" class="card-img-top" alt="{{promotion.name}}">
         <div class="card-body">
           <h5 class="card-title">{{promotion.name}}</h5>
@@ -32,7 +32,7 @@
         <h4>Loading ... please wait</h4>
       </div>
 
-      <div class="card m-2" style="width: 50rem; " *ngIf="leader">
+      <div class="card m-2" style="width: 50rem; " *ngIf="leader" [@expand] >
         <img src="{{leader.image}}" class="card-img-top" alt="{{leader.name}}">
         <div class="card-body">
           <h5 class="card-title">{{leader.name}}</h5>
