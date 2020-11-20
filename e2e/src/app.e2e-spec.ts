@@ -1,5 +1,7 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import {  logging } from 'protractor';
+import { browser } from 'protractor';
+
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -9,8 +11,30 @@ describe('workspace-project App', () => {
   });
 
   it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('conFusion app is running!');
+    page.navigateTo('/');
+    expect(page.getTitleText('app-root h1')).toEqual('Ristorante Con Fusion');
+  });
+  it('should navigate to about us page by clicking on the link ',()=>{
+    page.navigateTo('/');
+    let navLink=page.getAllElements('a').get(1);
+    navLink.click();
+    expect(page.getTitleText('h3')).toBe('About Us');
+
+  });
+  it('should enter a new comment for the first dish',()=>{
+    page.navigateTo('/dishdetail/0');
+    const newAuthor=page.getElement('input[type=text]');
+    newAuthor.sendKeys('Test Author ');
+    const newComment=page.getElement('textarea');
+    newComment.sendKeys('Test comment');
+    const newSubmitButton=page.getElement('button[type=submit]');
+    
+    browser.sleep(10000);
+    newSubmitButton.click();
+    browser.sleep(10000);
+    
+    
+
   });
 
   afterEach(async () => {
