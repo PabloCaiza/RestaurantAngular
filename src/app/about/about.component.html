@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-4 ">
 
-                            <img src="{{leader.image}}" class="rounded-circle container" alt="{{leader.name}}">
+                            <img src="{{baseUrl+leader.image}}" class="rounded-circle container" alt="{{leader.name}}">
 
 
                         </div>
@@ -85,13 +85,16 @@
             </ul>
 
         </div>
-        <div [hidden]="leaders">
+        <div *ngIf="leaderErrorMsg">
+            <h2>Error</h2>
+            <h4>{{leaderErrorMsg}}</h4>
+
+        </div>
+        <div [hidden]="leaders|| leaderErrorMsg">
             <mat-spinner></mat-spinner>
             <h4>Loading ... please wait</h4>
         </div>
 
-        <div [hidden]="leaders">
-            <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
-          </div>
+       
     </div>
 </div>

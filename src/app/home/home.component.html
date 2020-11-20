@@ -18,22 +18,26 @@
       </div>
 
       <div class="card m-2" style="width: 50rem; " *ngIf="promotion" [@expand] >
-        <img src="{{promotion.image}}" class="card-img-top" alt="{{promotion.name}}">
+        <img src="{{baseUrl+promotion.image}}" class="card-img-top" alt="{{promotion.name}}">
         <div class="card-body">
           <h5 class="card-title">{{promotion.name}}</h5>
           <p class="card-text">{{promotion.description}}</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
+      <div *ngIf="promotionErrorMsg" class="card m-2" style="width: 50rem; ">
+        <h2>Error</h2>
+        <h4>{{promotionErrorMsg}}</h4>
+      </div>
       
 
-      <div class="card m-2" style="width: 50rem; " [hidden]="promotion" >
+      <div class="card m-2" style="width: 50rem; " [hidden]="promotion || promotionErrorMsg" >
         <mat-spinner></mat-spinner>
         <h4>Loading ... please wait</h4>
       </div>
 
       <div class="card m-2" style="width: 50rem; " *ngIf="leader" [@expand] >
-        <img src="{{leader.image}}" class="card-img-top" alt="{{leader.name}}">
+        <img src="{{baseUrl+leader.image}}" class="card-img-top" alt="{{leader.name}}">
         <div class="card-body">
           <h5 class="card-title">{{leader.name}}</h5>
           <p class="card-text">{{leader.designation}}</p>
@@ -41,7 +45,11 @@
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-      <div [hidden]="leader" class="card m-2" style="width: 50rem; ">
+      <div *ngIf="leaderErrorMsg" class="card m-2" style="width: 50rem; ">
+        <h2>Error</h2>
+        <p>{{leaderErrorMsg}}</p>
+      </div>
+      <div [hidden]="leader || leaderErrorMsg" class="card m-2" style="width: 50rem; ">
         <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
       </div>
      

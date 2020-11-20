@@ -22,13 +22,15 @@ export class HomeComponent implements OnInit {
   dish: Dish;
   leader:Leader;
   dishErrorMsg:string;
+  promotionErrorMsg:string;
+  leaderErrorMsg:string;
   constructor(private promotionService:PromotionService,private dishService:DishService,private leaderService:LeaderService,
     @Inject('BaseUrl') private baseUrl) { }
 
   ngOnInit(): void {
-  this.promotionService.getFeaturedPromotion().subscribe(promotion=>this.promotion=promotion);
+  this.promotionService.getFeaturedPromotion().subscribe(promotion=>this.promotion=promotion,errorMsg=>this.promotionErrorMsg=errorMsg);
   this.dishService.getFeaturedDish().subscribe(dish=>this.dish=dish,errorMsg=>this.dishErrorMsg=errorMsg);
-  this.leaderService.getFeaturedLeader().subscribe(leader=>this.leader=leader);
+  this.leaderService.getFeaturedLeader().subscribe(leader=>this.leader=leader,errorMsg=>this.leaderErrorMsg=errorMsg);
     
     
   }
